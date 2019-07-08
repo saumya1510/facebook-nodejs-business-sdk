@@ -68,7 +68,7 @@
     "vinyl-source-stream": "~2.0.0"
   },
   "scripts": {
-    "prepublish": "gulp dist",
+    // "prepublish": "gulp dist",
     "start": "semistandard --fix",
     "flow": "flow"
   },
