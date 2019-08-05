@@ -435,8 +435,8 @@ class VideoEncodingStatusChecker {
     let status = null;
 
     while (true) {
-      status = VideoEncodingStatusChecker.getStatus(api, videoId);
-      status = status['video_status'];
+      status = await VideoEncodingStatusChecker.getStatus(api, videoId);
+      status = status['status']['video_status'];
 
       if (status !== 'processing') {
         break;
@@ -452,6 +452,8 @@ class VideoEncodingStatusChecker {
     if (status !== 'ready') {
       status = status == null ? '' : status;
       throw Error(`Video encoding status ${status}`);
+    }else{
+        return status;
     }
 
     return;
@@ -460,7 +462,7 @@ class VideoEncodingStatusChecker {
   static getStatus(api: FacebookAdsApi, videoId: number) {
     const result = api.call('GET', [videoId.toString()], {fields: 'status'});
     // $FlowFixMe
-    return result['status'];
+    return result;
   }
 }
 
