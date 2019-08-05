@@ -14,6 +14,7 @@ import AdStudy from './ad-study';
 import AdCreative from './ad-creative';
 import AdRule from './ad-rule';
 import Ad from './ad';
+import AdAsyncRequest from './ad-async-request';
 import AdCampaignDeliveryEstimate from './ad-campaign-delivery-estimate';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
@@ -28,12 +29,10 @@ export default class AdSet extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
       account_id: 'account_id',
-      ad_keywords: 'ad_keywords',
       adlabels: 'adlabels',
       adset_schedule: 'adset_schedule',
       asset_feed_id: 'asset_feed_id',
       attribution_spec: 'attribution_spec',
-      best_creative: 'best_creative',
       bid_adjustments: 'bid_adjustments',
       bid_amount: 'bid_amount',
       bid_constraints: 'bid_constraints',
@@ -118,6 +117,7 @@ export default class AdSet extends AbstractCrudObject {
       archived: 'ARCHIVED',
       deleted: 'DELETED',
       paused: 'PAUSED',
+      with_issues: 'WITH_ISSUES',
     });
   }
   static get OptimizationGoal (): Object {
@@ -260,22 +260,6 @@ export default class AdSet extends AbstractCrudObject {
     );
   }
 
-  deleteAdLabels (params: Object = {}): Promise<*> {
-    return super.deleteEdge(
-      '/adlabels',
-      params
-    );
-  }
-
-  createAdLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
-    return this.createEdge(
-      '/adlabels',
-      fields,
-      params,
-      AdSet
-    );
-  }
-
   getAdRulesGoverned (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       AdRule,
@@ -293,6 +277,26 @@ export default class AdSet extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ads'
+    );
+  }
+
+  getAsyncAdRequests (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdAsyncRequest,
+      fields,
+      params,
+      fetchFirstPage,
+      '/asyncadrequests'
+    );
+  }
+
+  getCopies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AdSet,
+      fields,
+      params,
+      fetchFirstPage,
+      '/copies'
     );
   }
 
@@ -331,6 +335,22 @@ export default class AdSet extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
+    );
+  }
+
+  deleteLabels (params: Object = {}): Promise<*> {
+    return super.deleteEdge(
+      '/labels',
+      params
+    );
+  }
+
+  createLabel (fields: Array<string>, params: Object = {}): Promise<AdSet> {
+    return this.createEdge(
+      '/labels',
+      fields,
+      params,
+      AdSet
     );
   }
 

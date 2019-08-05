@@ -46,15 +46,6 @@ export default class AdReportRun extends AbstractCrudObject {
     );
   }
 
-  createRetry (fields: Array<string>, params: Object = {}): Promise<AdReportRun> {
-    return this.createEdge(
-      '/retry',
-      fields,
-      params,
-      AdReportRun
-    );
-  }
-
   // $FlowFixMe : Support Generic Types
   delete (fields: Array<string>, params: Object = {}): AbstractObject {
     // $FlowFixMe : Support Generic Types

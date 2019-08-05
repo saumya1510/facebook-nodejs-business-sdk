@@ -99,7 +99,6 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       timezone_name: 'timezone_name',
       topline_id: 'topline_id',
       tv_viewer_cluster_map: 'tv_viewer_cluster_map',
-      video_view_benchmark_map: 'video_view_benchmark_map',
       video_view_length_constraint: 'video_view_length_constraint',
       viewtag: 'viewtag',
     });
@@ -137,6 +136,7 @@ export default class ReachFrequencyPrediction extends AbstractCrudObject {
       regular_sports: 'REGULAR_SPORTS',
       regular_style: 'REGULAR_STYLE',
       regular_tv_movies: 'REGULAR_TV_MOVIES',
+      spanish: 'SPANISH',
       sports: 'SPORTS',
     });
   }

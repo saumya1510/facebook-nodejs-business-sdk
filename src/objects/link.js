@@ -7,9 +7,9 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Comment from './comment';
+import Profile from './profile';
 import Post from './post';
 
 /**
@@ -36,12 +36,42 @@ export default class Link extends AbstractCrudObject {
   }
 
 
+  getComments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Comment,
+      fields,
+      params,
+      fetchFirstPage,
+      '/comments'
+    );
+  }
+
   createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
     return this.createEdge(
       '/comments',
       fields,
       params,
       Comment
+    );
+  }
+
+  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/likes'
+    );
+  }
+
+  getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/reactions'
     );
   }
 
@@ -52,14 +82,6 @@ export default class Link extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/sharedposts'
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
     );
   }
 

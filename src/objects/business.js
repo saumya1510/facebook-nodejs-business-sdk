@@ -17,12 +17,15 @@ import AdNetworkAnalyticsAsyncQueryResult from './ad-network-analytics-async-que
 import AdsPixel from './ads-pixel';
 import BusinessAdvertisableApplicationsResult from './business-advertisable-applications-result';
 import AdPlacement from './ad-placement';
+import OracleTransaction from './oracle-transaction';
 import BusinessUser from './business-user';
 import BusinessProject from './business-project';
 import CustomConversion from './custom-conversion';
 import Application from './application';
 import Page from './page';
 import ProductCatalog from './product-catalog';
+import BusinessCreativeFolder from './business-creative-folder';
+import BusinessCreative from './business-creative';
 import DirectDeal from './direct-deal';
 import EventSourceGroup from './event-source-group';
 import ExtendedCredit from './extended-credit';
@@ -40,6 +43,7 @@ import BusinessOwnedObjectOnBehalfOfRequest from './business-owned-object-on-beh
 import SystemUser from './system-user';
 import ThirdPartyMeasurementReportDataset from './third-party-measurement-report-dataset';
 import MeasurementUploadEvent from './measurement-upload-event';
+import AdVideo from './ad-video';
 
 /**
  * Business
@@ -108,6 +112,9 @@ export default class Business extends AbstractCrudObject {
     return Object.freeze({
       advertise: 'ADVERTISE',
       analyze: 'ANALYZE',
+      creative: 'CREATIVE',
+      draft: 'DRAFT',
+      fb_employee_dso_advertise: 'FB_EMPLOYEE_DSO_ADVERTISE',
       manage: 'MANAGE',
     });
   }
@@ -131,6 +138,7 @@ export default class Business extends AbstractCrudObject {
       moderate_community: 'MODERATE_COMMUNITY',
       pages_messaging: 'PAGES_MESSAGING',
       pages_messaging_subscriptions: 'PAGES_MESSAGING_SUBSCRIPTIONS',
+      platform_manage_pages: 'PLATFORM_MANAGE_PAGES',
       read_page_mailboxes: 'READ_PAGE_MAILBOXES',
       view_monetization_insights: 'VIEW_MONETIZATION_INSIGHTS',
     });
@@ -280,6 +288,16 @@ export default class Business extends AbstractCrudObject {
       fields,
       params,
       Business
+    );
+  }
+
+  getBusinessInvoices (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      OracleTransaction,
+      fields,
+      params,
+      fetchFirstPage,
+      '/business_invoices'
     );
   }
 
@@ -433,6 +451,35 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
+  getCreativeFolders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessCreativeFolder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creative_folders'
+    );
+  }
+
+  createCreativeFolder (fields: Array<string>, params: Object = {}): Promise<BusinessCreativeFolder> {
+    return this.createEdge(
+      '/creative_folders',
+      fields,
+      params,
+      BusinessCreativeFolder
+    );
+  }
+
+  getCreatives (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessCreative,
+      fields,
+      params,
+      fetchFirstPage,
+      '/creatives'
+    );
+  }
+
   getCustomConversions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       CustomConversion,
@@ -498,6 +545,15 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/extendedcredits'
+    );
+  }
+
+  createImage (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
+    return this.createEdge(
+      '/images',
+      fields,
+      params,
+      
     );
   }
 
@@ -704,16 +760,6 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  getPartners (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Business,
-      fields,
-      params,
-      fetchFirstPage,
-      '/partners'
-    );
-  }
-
   getPendingClientAdAccounts (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       BusinessAdAccountRequest,
@@ -771,6 +817,16 @@ export default class Business extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/pending_owned_pages'
+    );
+  }
+
+  getPendingSharedCreativeFolders (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      BusinessCreativeFolder,
+      fields,
+      params,
+      fetchFirstPage,
+      '/pending_shared_creative_folders'
     );
   }
 
@@ -892,21 +948,21 @@ export default class Business extends AbstractCrudObject {
     );
   }
 
-  createThirdPartyMeasurementReportDataset (fields: Array<string>, params: Object = {}): Promise<ThirdPartyMeasurementReportDataset> {
-    return this.createEdge(
-      '/third_party_measurement_report_dataset',
-      fields,
-      params,
-      ThirdPartyMeasurementReportDataset
-    );
-  }
-
   createUploadEvent (fields: Array<string>, params: Object = {}): Promise<MeasurementUploadEvent> {
     return this.createEdge(
       '/upload_event',
       fields,
       params,
       MeasurementUploadEvent
+    );
+  }
+
+  createVideo (fields: Array<string>, params: Object = {}): Promise<AdVideo> {
+    return this.createEdge(
+      '/videos',
+      fields,
+      params,
+      AdVideo
     );
   }
 

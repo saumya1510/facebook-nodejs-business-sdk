@@ -7,7 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
 import Lead from './lead';
 
@@ -21,6 +20,7 @@ export default class LeadgenForm extends AbstractCrudObject {
     return Object.freeze({
       allow_organic_lead: 'allow_organic_lead',
       block_display_for_non_targeted_viewer: 'block_display_for_non_targeted_viewer',
+      context_card: 'context_card',
       created_time: 'created_time',
       creator: 'creator',
       creator_id: 'creator_id',
@@ -33,6 +33,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       is_optimized_for_quality: 'is_optimized_for_quality',
       leadgen_export_csv_url: 'leadgen_export_csv_url',
       leads_count: 'leads_count',
+      legal_content: 'legal_content',
       locale: 'locale',
       messenger_welcome_message: 'messenger_welcome_message',
       name: 'name',
@@ -45,6 +46,7 @@ export default class LeadgenForm extends AbstractCrudObject {
       questions: 'questions',
       status: 'status',
       tcpa_compliance: 'tcpa_compliance',
+      thank_you_page: 'thank_you_page',
       tracking_parameters: 'tracking_parameters',
     });
   }
@@ -119,14 +121,6 @@ export default class LeadgenForm extends AbstractCrudObject {
       fields,
       params,
       Lead
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  delete (fields: Array<string>, params: Object = {}): AbstractObject {
-    // $FlowFixMe : Support Generic Types
-    return super.delete(
-      params
     );
   }
 

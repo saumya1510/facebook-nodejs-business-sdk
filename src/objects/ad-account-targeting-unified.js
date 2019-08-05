@@ -73,8 +73,8 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
   }
   static get RegulatedCategories (): Object {
     return Object.freeze({
+      credit: 'CREDIT',
       employment: 'EMPLOYMENT',
-      financing: 'FINANCING',
       housing: 'HOUSING',
       none: 'NONE',
     });
@@ -117,6 +117,7 @@ export default class AdAccountTargetingUnified extends AbstractCrudObject {
       ethnic_affinity: 'ethnic_affinity',
       exclude_previous_days: 'exclude_previous_days',
       exclude_reached_since: 'exclude_reached_since',
+      excluded_brand_safety_content_types: 'excluded_brand_safety_content_types',
       excluded_connections: 'excluded_connections',
       excluded_custom_audiences: 'excluded_custom_audiences',
       excluded_dynamic_audience_ids: 'excluded_dynamic_audience_ids',

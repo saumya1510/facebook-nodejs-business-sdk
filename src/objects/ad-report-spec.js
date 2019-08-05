@@ -40,10 +40,14 @@ export default class AdReportSpec extends AbstractCrudObject {
 
   static get ActionsGroupBy (): Object {
     return Object.freeze({
+      action_brand: 'action_brand',
       action_canvas_component_id: 'action_canvas_component_id',
       action_canvas_component_name: 'action_canvas_component_name',
       action_carousel_card_id: 'action_carousel_card_id',
       action_carousel_card_name: 'action_carousel_card_name',
+      action_category: 'action_category',
+      action_converted_brand_tag_id: 'action_converted_brand_tag_id',
+      action_converted_category_tag_id: 'action_converted_category_tag_id',
       action_converted_product_id: 'action_converted_product_id',
       action_destination: 'action_destination',
       action_device: 'action_device',

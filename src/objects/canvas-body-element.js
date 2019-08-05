@@ -9,18 +9,14 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CopyrightAttributionInsights
+ * CanvasBodyElement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CopyrightAttributionInsights extends AbstractCrudObject {
+export default class CanvasBodyElement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      l7_attribution_page_view: 'l7_attribution_page_view',
-      l7_attribution_page_view_delta: 'l7_attribution_page_view_delta',
-      l7_attribution_video_view: 'l7_attribution_video_view',
-      l7_attribution_video_view_delta: 'l7_attribution_video_view_delta',
-      metrics_ending_date: 'metrics_ending_date',
+      element: 'element',
     });
   }
 

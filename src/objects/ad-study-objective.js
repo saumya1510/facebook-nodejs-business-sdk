@@ -15,6 +15,7 @@ import Application from './application';
 import CustomConversion from './custom-conversion';
 import OfflineConversionDataSet from './offline-conversion-data-set';
 import OffsitePixel from './offsite-pixel';
+import PartnerStudy from './partner-study';
 
 /**
  * AdStudyObjective
@@ -24,7 +25,6 @@ import OffsitePixel from './offsite-pixel';
 export default class AdStudyObjective extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      custom_attributes: 'custom_attributes',
       id: 'id',
       is_primary: 'is_primary',
       last_updated_results: 'last_updated_results',
@@ -105,6 +105,16 @@ export default class AdStudyObjective extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/offsitepixels'
+    );
+  }
+
+  getPartnerStudies (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      PartnerStudy,
+      fields,
+      params,
+      fetchFirstPage,
+      '/partnerstudies'
     );
   }
 

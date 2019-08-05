@@ -14,6 +14,7 @@ import RTBDynamicPost from './rtb-dynamic-post';
 import InsightsResult from './insights-result';
 import Profile from './profile';
 import User from './user';
+import Page from './page';
 
 /**
  * Post
@@ -29,6 +30,7 @@ export default class Post extends AbstractCrudObject {
       application: 'application',
       backdated_time: 'backdated_time',
       call_to_action: 'call_to_action',
+      can_reply_privately: 'can_reply_privately',
       caption: 'caption',
       child_attachments: 'child_attachments',
       comments_mirroring_domain: 'comments_mirroring_domain',
@@ -109,6 +111,11 @@ export default class Post extends AbstractCrudObject {
       normal: 'normal',
     });
   }
+  static get With (): Object {
+    return Object.freeze({
+      location: 'LOCATION',
+    });
+  }
 
   getAttachments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
@@ -146,6 +153,16 @@ export default class Post extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/dynamic_posts'
+    );
+  }
+
+  getEditActions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      AbstractObject,
+      fields,
+      params,
+      fetchFirstPage,
+      '/edit_actions'
     );
   }
 
@@ -224,6 +241,16 @@ export default class Post extends AbstractCrudObject {
     );
   }
 
+  getSponsorTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Page,
+      fields,
+      params,
+      fetchFirstPage,
+      '/sponsor_tags'
+    );
+  }
+
   getTo (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -231,6 +258,16 @@ export default class Post extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/to'
+    );
+  }
+
+  getWithTags (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      Profile,
+      fields,
+      params,
+      fetchFirstPage,
+      '/with_tags'
     );
   }
 
