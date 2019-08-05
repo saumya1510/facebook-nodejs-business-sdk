@@ -81,12 +81,12 @@ export default class AdVideo extends AbstractCrudObject {
     return response;
   }
 
-  waitUntilEncodingReady(interval: number = 30, timeout: number = 600) {
+  async waitUntilEncodingReady(interval: number = 30, timeout: number = 600) {
     if (!this.id) {
       throw Error('Invalid Video ID');
     }
 
-    VideoEncodingStatusChecker.waitUntilReady(
+    return await VideoEncodingStatusChecker.waitUntilReady(
       this.getApi(),
       parseInt(this.id),
       interval,
