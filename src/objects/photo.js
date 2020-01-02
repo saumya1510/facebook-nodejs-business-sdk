@@ -70,7 +70,9 @@ export default class Photo extends AbstractCrudObject {
       draft: 'DRAFT',
       inline_created: 'INLINE_CREATED',
       published: 'PUBLISHED',
+      reviewable_branded_content: 'REVIEWABLE_BRANDED_CONTENT',
       scheduled: 'SCHEDULED',
+      scheduled_recurring: 'SCHEDULED_RECURRING',
     });
   }
   static get Type (): Object {

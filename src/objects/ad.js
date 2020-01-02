@@ -13,7 +13,6 @@ import AdCreative from './ad-creative';
 import AdRule from './ad-rule';
 import AdsInsights from './ads-insights';
 import AdReportRun from './ad-report-run';
-import AdKeywordStats from './ad-keyword-stats';
 import Lead from './lead';
 import AdPreview from './ad-preview';
 import TargetingSentenceLine from './targeting-sentence-line';
@@ -88,6 +87,7 @@ export default class Ad extends AbstractCrudObject {
       campaign_paused: 'CAMPAIGN_PAUSED',
       deleted: 'DELETED',
       disapproved: 'DISAPPROVED',
+      in_process: 'IN_PROCESS',
       paused: 'PAUSED',
       pending_billing_info: 'PENDING_BILLING_INFO',
       pending_review: 'PENDING_REVIEW',
@@ -218,16 +218,6 @@ export default class Ad extends AbstractCrudObject {
       fields,
       params,
       AdReportRun
-    );
-  }
-
-  getKeywordStats (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdKeywordStats,
-      fields,
-      params,
-      fetchFirstPage,
-      '/keywordstats'
     );
   }
 

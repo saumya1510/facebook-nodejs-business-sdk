@@ -9,40 +9,33 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * FoodDrinkOrder
+ * BusinessAssetSharingAgreement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class FoodDrinkOrder extends AbstractCrudObject {
+export default class BusinessAssetSharingAgreement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      admin_note: 'admin_note',
-      creation_time: 'creation_time',
-      customer_name: 'customer_name',
-      customer_phone_number: 'customer_phone_number',
       id: 'id',
-      note: 'note',
-      order_details: 'order_details',
-      state: 'state',
-      update_time: 'update_time',
+      initiator: 'initiator',
+      recipient: 'recipient',
+      relationship_type: 'relationship_type',
+      request_status: 'request_status',
+      request_type: 'request_type',
     });
   }
 
-  static get State (): Object {
+  static get RequestStatus (): Object {
     return Object.freeze({
-      cancelled: 'CANCELLED',
-      confirmed: 'CONFIRMED',
-      draft: 'DRAFT',
+      approve: 'APPROVE',
+      decline: 'DECLINE',
       expired: 'EXPIRED',
-      on_delivery: 'ON_DELIVERY',
-      pending: 'PENDING',
-      ready_for_pickup: 'READY_FOR_PICKUP',
-      serving: 'SERVING',
+      in_progress: 'IN_PROGRESS',
     });
   }
 
   
-  get (fields: Array<string>, params: Object = {}): FoodDrinkOrder {
+  get (fields: Array<string>, params: Object = {}): BusinessAssetSharingAgreement {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
@@ -51,7 +44,7 @@ export default class FoodDrinkOrder extends AbstractCrudObject {
   }
 
   // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): FoodDrinkOrder {
+  update (fields: Array<string>, params: Object = {}): BusinessAssetSharingAgreement {
     // $FlowFixMe : Support Generic Types
     return super.update(
       params

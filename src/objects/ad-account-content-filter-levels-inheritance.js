@@ -9,17 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BusinessAdvertisableApplicationsResult
+ * AdAccountContentFilterLevelsInheritance
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BusinessAdvertisableApplicationsResult extends AbstractCrudObject {
+export default class AdAccountContentFilterLevelsInheritance extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      has_insight_permission: 'has_insight_permission',
-      id: 'id',
-      name: 'name',
-      photo_url: 'photo_url',
+      an_business_ids: 'an_business_ids',
+      an_level: 'an_level',
+      facebook_business_ids: 'facebook_business_ids',
+      facebook_level: 'facebook_level',
     });
   }
 

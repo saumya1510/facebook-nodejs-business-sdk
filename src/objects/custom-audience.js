@@ -81,6 +81,7 @@ export default class CustomAudience extends AbstractCrudObject {
       home_listing: 'HOME_LISTING',
       hotel: 'HOTEL',
       media_title: 'MEDIA_TITLE',
+      offline_product: 'OFFLINE_PRODUCT',
       product: 'PRODUCT',
       vehicle: 'VEHICLE',
       vehicle_offer: 'VEHICLE_OFFER',
@@ -146,15 +147,6 @@ export default class CustomAudience extends AbstractCrudObject {
       params,
       fetchFirstPage,
       '/ads'
-    );
-  }
-
-  createCapability (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/capabilities',
-      fields,
-      params,
-      
     );
   }
 
