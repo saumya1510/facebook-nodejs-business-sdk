@@ -12143,7 +12143,7 @@ var VideoUploadTransferRequestManager = function (_VideoUploadRequestMa2) {
      **/
     value: function sendRequest(context) {
       function _recursive() {
-        var _this8 = this;
+        var _this8 = _this7;
 
         if (_this8._startOffset !== _this8._endOffset) {
           return Promise.resolve().then(function () {
