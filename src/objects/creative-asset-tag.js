@@ -9,25 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CustomConversionActivities
+ * CreativeAssetTag
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CustomConversionActivities extends AbstractCrudObject {
+export default class CreativeAssetTag extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      app_id: 'app_id',
-      data: 'data',
-      event_type: 'event_type',
-      timestamp: 'timestamp',
+      name: 'name',
     });
   }
 
-  static get EventType (): Object {
-    return Object.freeze({
-      conversion_create: 'conversion_create',
-      conversion_delete: 'conversion_delete',
-      conversion_update: 'conversion_update',
-    });
-  }
 }

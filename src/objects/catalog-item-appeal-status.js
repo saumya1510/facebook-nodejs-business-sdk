@@ -9,26 +9,18 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * PlaceTag
+ * CatalogItemAppealStatus
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PlaceTag extends AbstractCrudObject {
+export default class CatalogItemAppealStatus extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      created_time: 'created_time',
-      id: 'id',
-      place: 'place',
+      handle: 'handle',
+      item_id: 'item_id',
+      status: 'status',
+      use_cases: 'use_cases',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): PlaceTag {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

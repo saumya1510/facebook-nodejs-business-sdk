@@ -7,9 +7,6 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import AdsDataPartner from './ads-data-partner';
-import User from './user';
 
 /**
  * PartnerStudy
@@ -40,26 +37,6 @@ export default class PartnerStudy extends AbstractCrudObject {
     });
   }
 
-
-  getPartners (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      AdsDataPartner,
-      fields,
-      params,
-      fetchFirstPage,
-      '/partners'
-    );
-  }
-
-  getSubmitters (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/submitters'
-    );
-  }
 
   
   get (fields: Array<string>, params: Object = {}): PartnerStudy {

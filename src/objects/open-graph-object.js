@@ -10,7 +10,6 @@ import {AbstractCrudObject} from './../abstract-crud-object';
 import Cursor from './../cursor';
 import Comment from './comment';
 import Profile from './profile';
-import ProfilePictureSource from './profile-picture-source';
 
 /**
  * OpenGraphObject
@@ -23,7 +22,6 @@ export default class OpenGraphObject extends AbstractCrudObject {
       admins: 'admins',
       application: 'application',
       audio: 'audio',
-      context: 'context',
       created_time: 'created_time',
       description: 'description',
       determiner: 'determiner',
@@ -56,44 +54,6 @@ export default class OpenGraphObject extends AbstractCrudObject {
     );
   }
 
-  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
-  }
-
-  getLikes (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      Profile,
-      fields,
-      params,
-      fetchFirstPage,
-      '/likes'
-    );
-  }
-
-  createLike (fields: Array<string>, params: Object = {}): Promise<OpenGraphObject> {
-    return this.createEdge(
-      '/likes',
-      fields,
-      params,
-      OpenGraphObject
-    );
-  }
-
-  getPicture (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      ProfilePictureSource,
-      fields,
-      params,
-      fetchFirstPage,
-      '/picture'
-    );
-  }
-
   getReactions (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Profile,
@@ -109,14 +69,6 @@ export default class OpenGraphObject extends AbstractCrudObject {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): OpenGraphObject {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }

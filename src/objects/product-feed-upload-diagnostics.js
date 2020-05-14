@@ -9,26 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ThreadSetting
+ * ProductFeedUploadDiagnostics
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ThreadSetting extends AbstractCrudObject {
+export default class ProductFeedUploadDiagnostics extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      id: 'id',
-      payment_privacy_url: 'payment_privacy_url',
-      whitelisted_domains: 'whitelisted_domains',
+      last_modified_time: 'last_modified_time',
+      report_url: 'report_url',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): ThreadSetting {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

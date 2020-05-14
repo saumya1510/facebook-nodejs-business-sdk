@@ -7,38 +7,34 @@
  * @flow
  */
 import {AbstractCrudObject} from './../abstract-crud-object';
-import Cursor from './../cursor';
-import User from './user';
 
 /**
- * PageLabel
+ * BusinessCreativeFolderSharingAgreement
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class PageLabel extends AbstractCrudObject {
+export default class BusinessCreativeFolderSharingAgreement extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      creation_time: 'creation_time',
-      creator_id: 'creator_id',
-      from: 'from',
+      folder_id: 'folder_id',
       id: 'id',
-      name: 'name',
+      requesting_business: 'requesting_business',
+      status: 'status',
     });
   }
 
-
-  getUsers (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      User,
-      fields,
-      params,
-      fetchFirstPage,
-      '/users'
-    );
+  static get RequestStatus (): Object {
+    return Object.freeze({
+      approve: 'APPROVE',
+      decline: 'DECLINE',
+      expired: 'EXPIRED',
+      in_progress: 'IN_PROGRESS',
+      pending: 'PENDING',
+    });
   }
 
   
-  get (fields: Array<string>, params: Object = {}): PageLabel {
+  get (fields: Array<string>, params: Object = {}): BusinessCreativeFolderSharingAgreement {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

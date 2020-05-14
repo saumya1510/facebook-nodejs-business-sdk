@@ -9,7 +9,6 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 import AbstractObject from './../abstract-object';
 import Cursor from './../cursor';
-import Comment from './comment';
 import ProductSet from './product-set';
 
 /**
@@ -342,15 +341,6 @@ export default class ProductItem extends AbstractCrudObject {
       fb_vehi: 'FB_VEHI',
       fb_vehi_part: 'FB_VEHI_PART',
     });
-  }
-
-  createComment (fields: Array<string>, params: Object = {}): Promise<Comment> {
-    return this.createEdge(
-      '/comments',
-      fields,
-      params,
-      Comment
-    );
   }
 
   getProductSets (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {

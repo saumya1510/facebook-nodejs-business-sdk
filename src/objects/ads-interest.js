@@ -9,29 +9,26 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * CalibratorExistingRule
+ * AdsInterest
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class CalibratorExistingRule extends AbstractCrudObject {
+export default class AdsInterest extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      value_7d_volume: '7d_volume',
-      creation_source: 'creation_source',
-      creation_time: 'creation_time',
-      creator: 'creator',
-      event_type: 'event_type',
+      audience_size: 'audience_size',
+      description: 'description',
+      disambiguation_category: 'disambiguation_category',
       id: 'id',
-      rule: 'rule',
-      rule_type: 'rule_type',
-      sample_urls: 'sample_urls',
-      status: 'status',
+      name: 'name',
+      path: 'path',
+      topic: 'topic',
     });
   }
 
 
   
-  get (fields: Array<string>, params: Object = {}): CalibratorExistingRule {
+  get (fields: Array<string>, params: Object = {}): AdsInterest {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,

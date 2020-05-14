@@ -26,14 +26,19 @@ const userData = (new UserData())
                 .setFbp('fb.1.1558571054389.1098115397')
                 .setFbc('fb.1.1554763741205.AbCdEfGhIjKlMnOpQrStUvWxYz1234567890');
 
-const serverEvent = (new ServerEvent())
-                .setEventName('PageView')
-                .setEventTime(current_timestamp)
-                .setUserData(userData);
+const customData = (new CustomData())
+                .setCurrency('usd')
+                .setValue(123.45);
 
-   const eventsData = [serverEvent];
-   const eventRequest = (new EventRequest(access_token, pixel_id))
+const serverEvent = (new ServerEvent())
+                .setEventName('Purchase')
+                .setEventTime(current_timestamp)
+                .setUserData(userData)
+                .setCustomData(customData);
+
+const eventsData = [serverEvent];
+const eventRequest = (new EventRequest(access_token, pixel_id))
                 .setEvents(eventsData);
 
 
-   eventRequest.execute();
+eventRequest.execute();

@@ -9,18 +9,17 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * BusinessSettingLogsData
+ * AdCreativePhotoDataMediaElements
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class BusinessSettingLogsData extends AbstractCrudObject {
+export default class AdCreativePhotoDataMediaElements extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      actor: 'actor',
-      event_object: 'event_object',
-      event_time: 'event_time',
-      event_type: 'event_type',
-      extra_data: 'extra_data',
+      element_id: 'element_id',
+      element_type: 'element_type',
+      x: 'x',
+      y: 'y',
     });
   }
 

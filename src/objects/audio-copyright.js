@@ -25,33 +25,19 @@ export default class AudioCopyright extends AbstractCrudObject {
       ownership_countries: 'ownership_countries',
       reference_file_status: 'reference_file_status',
       ridge_monitoring_status: 'ridge_monitoring_status',
+      tags: 'tags',
       update_time: 'update_time',
       whitelisted_fb_users: 'whitelisted_fb_users',
       whitelisted_ig_users: 'whitelisted_ig_users',
     });
   }
 
-  static get UpdateSource (): Object {
-    return Object.freeze({
-      ddex: 'ddex',
-      edit_reference_dialog: 'edit_reference_dialog',
-      reference_conflict_dialog: 'reference_conflict_dialog',
-    });
-  }
 
   
   get (fields: Array<string>, params: Object = {}): AudioCopyright {
     // $FlowFixMe : Support Generic Types
     return this.read(
       fields,
-      params
-    );
-  }
-
-  // $FlowFixMe : Support Generic Types
-  update (fields: Array<string>, params: Object = {}): AudioCopyright {
-    // $FlowFixMe : Support Generic Types
-    return super.update(
       params
     );
   }
