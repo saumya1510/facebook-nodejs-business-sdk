@@ -9,15 +9,13 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * ProductFeedUploadDiagnostics
+ * AdCreativeInstagramBrandedContent
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class ProductFeedUploadDiagnostics extends AbstractCrudObject {
+export default class AdCreativeInstagramBrandedContent extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      last_modified_time: 'last_modified_time',
-      report_url: 'report_url',
     });
   }
 
