@@ -22,7 +22,6 @@ import Business from './business';
 import UnifiedThread from './unified-thread';
 import PageUserMessageThreadLabel from './page-user-message-thread-label';
 import Event from './event';
-import FriendList from './friend-list';
 import Group from './group';
 import UserIDForApp from './user-id-for-app';
 import UserIDForPage from './user-id-for-page';
@@ -31,9 +30,7 @@ import LiveVideo from './live-video';
 import Permission from './permission';
 import Photo from './photo';
 import ProfilePictureSource from './profile-picture-source';
-import RequestHistory from './request-history';
 import Canvas from './canvas';
-import UserTaggableFriend from './user-taggable-friend';
 import AdVideo from './ad-video';
 
 /**
@@ -50,7 +47,6 @@ export default class User extends AbstractCrudObject {
       age_range: 'age_range',
       auth_method: 'auth_method',
       birthday: 'birthday',
-      can_review_measurement_request: 'can_review_measurement_request',
       cover: 'cover',
       currency: 'currency',
       devices: 'devices',
@@ -66,9 +62,7 @@ export default class User extends AbstractCrudObject {
       install_type: 'install_type',
       installed: 'installed',
       interested_in: 'interested_in',
-      is_famedeeplinkinguser: 'is_famedeeplinkinguser',
       is_guest_user: 'is_guest_user',
-      is_shared_login: 'is_shared_login',
       is_verified: 'is_verified',
       languages: 'languages',
       last_name: 'last_name',
@@ -88,20 +82,17 @@ export default class User extends AbstractCrudObject {
       quotes: 'quotes',
       relationship_status: 'relationship_status',
       religion: 'religion',
-      security_settings: 'security_settings',
       shared_login_upgrade_required_by: 'shared_login_upgrade_required_by',
       short_name: 'short_name',
       significant_other: 'significant_other',
       sports: 'sports',
       supports_donate_button_in_live_video: 'supports_donate_button_in_live_video',
-      test_group: 'test_group',
       third_party_id: 'third_party_id',
       timezone: 'timezone',
       token_for_business: 'token_for_business',
       updated_time: 'updated_time',
       verified: 'verified',
       video_upload_limits: 'video_upload_limits',
-      viewer_can_send_gift: 'viewer_can_send_gift',
       website: 'website',
       work: 'work',
     });
@@ -351,16 +342,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getFriendLists (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      FriendList,
-      fields,
-      params,
-      fetchFirstPage,
-      '/friendlists'
-    );
-  }
-
   getFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       User,
@@ -392,15 +373,6 @@ export default class User extends AbstractCrudObject {
   createGamesPlay (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
     return this.createEdge(
       '/games_plays',
-      fields,
-      params,
-      
-    );
-  }
-
-  createGamesStat (fields: Array<string>, params: Object = {}): Promise<AbstractObject> {
-    return this.createEdge(
-      '/games_stats',
       fields,
       params,
       
@@ -514,6 +486,16 @@ export default class User extends AbstractCrudObject {
     );
   }
 
+  getOwnedProductCatalogs (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
+    return this.getEdge(
+      ProductCatalog,
+      fields,
+      params,
+      fetchFirstPage,
+      '/owned_product_catalogs'
+    );
+  }
+
   deletePermissions (params: Object = {}): Promise<*> {
     return super.deleteEdge(
       '/permissions',
@@ -570,16 +552,6 @@ export default class User extends AbstractCrudObject {
     );
   }
 
-  getRequestHistory (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      RequestHistory,
-      fields,
-      params,
-      fetchFirstPage,
-      '/request_history'
-    );
-  }
-
   getRichMediaDocuments (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
     return this.getEdge(
       Canvas,
@@ -596,16 +568,6 @@ export default class User extends AbstractCrudObject {
       fields,
       params,
       User
-    );
-  }
-
-  getTaggableFriends (fields: Array<string>, params: Object = {}, fetchFirstPage: boolean = true): Cursor | Promise<*> {
-    return this.getEdge(
-      UserTaggableFriend,
-      fields,
-      params,
-      fetchFirstPage,
-      '/taggable_friends'
     );
   }
 

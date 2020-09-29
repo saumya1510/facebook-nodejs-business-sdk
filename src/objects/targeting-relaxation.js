@@ -9,28 +9,15 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * VideoGameShow
+ * TargetingRelaxation
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class VideoGameShow extends AbstractCrudObject {
+export default class TargetingRelaxation extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      end_time: 'end_time',
-      game_status: 'game_status',
-      game_type: 'game_type',
-      id: 'id',
-      start_time: 'start_time',
+      lookalike: 'lookalike',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): VideoGameShow {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }

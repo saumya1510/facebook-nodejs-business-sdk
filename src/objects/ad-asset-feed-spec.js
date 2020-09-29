@@ -30,6 +30,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       images: 'images',
       link_urls: 'link_urls',
       optimization_type: 'optimization_type',
+      posts: 'posts',
       titles: 'titles',
       videos: 'videos',
     });
@@ -54,6 +55,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       find_a_group: 'FIND_A_GROUP',
       find_your_groups: 'FIND_YOUR_GROUPS',
       follow_news_storyline: 'FOLLOW_NEWS_STORYLINE',
+      follow_page: 'FOLLOW_PAGE',
       follow_user: 'FOLLOW_USER',
       get_directions: 'GET_DIRECTIONS',
       get_offer: 'GET_OFFER',
@@ -80,6 +82,7 @@ export default class AdAssetFeedSpec extends AbstractCrudObject {
       say_thanks: 'SAY_THANKS',
       see_more: 'SEE_MORE',
       sell_now: 'SELL_NOW',
+      send_a_gift: 'SEND_A_GIFT',
       share: 'SHARE',
       shop_now: 'SHOP_NOW',
       sign_up: 'SIGN_UP',

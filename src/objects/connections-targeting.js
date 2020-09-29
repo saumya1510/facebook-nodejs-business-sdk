@@ -9,30 +9,16 @@
 import {AbstractCrudObject} from './../abstract-crud-object';
 
 /**
- * AdsInterest
+ * ConnectionsTargeting
  * @extends AbstractCrudObject
  * @see {@link https://developers.facebook.com/docs/marketing-api/}
  */
-export default class AdsInterest extends AbstractCrudObject {
+export default class ConnectionsTargeting extends AbstractCrudObject {
   static get Fields () {
     return Object.freeze({
-      audience_size: 'audience_size',
-      description: 'description',
-      disambiguation_category: 'disambiguation_category',
       id: 'id',
       name: 'name',
-      path: 'path',
-      topic: 'topic',
     });
   }
 
-
-  
-  get (fields: Array<string>, params: Object = {}): AdsInterest {
-    // $FlowFixMe : Support Generic Types
-    return this.read(
-      fields,
-      params
-    );
-  }
 }
